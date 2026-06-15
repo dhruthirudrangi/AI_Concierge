@@ -1,4 +1,4 @@
-# CardConcierge — Member 3 (Frontend + LLM Concierge)
+# CardConcierge — (Frontend + LLM Concierge)
 
 AI-powered credit card recommendation frontend with Gemini LLM integration.
 
