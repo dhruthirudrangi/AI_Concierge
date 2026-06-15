@@ -1,0 +1,116 @@
+.heatmap-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.heatmap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.heatmap-header h3 {
+  font-size: 1rem;
+  margin: 0 0 0.25rem;
+}
+
+.model-toggle {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.model-toggle button {
+  padding: 0.4rem 1rem;
+  border: none;
+  background: var(--bg);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.model-toggle button.active {
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+}
+
+.heatmap-wrapper {
+  overflow-x: auto;
+}
+
+.heatmap-table {
+  border-collapse: separate;
+  border-spacing: 4px;
+  width: 100%;
+  min-width: 500px;
+}
+
+.heatmap-table th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 0.25rem;
+  text-align: center;
+}
+
+.heatmap-table th.row-label {
+  text-align: right;
+  max-width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.heatmap-table th.corner {
+  width: 120px;
+}
+
+.heat-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  height: 40px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.legend-gradient {
+  flex: 1;
+  max-width: 200px;
+  height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(to right, hsl(0, 70%, 50%), hsl(120, 70%, 50%));
+}
+
+@media (max-width: 640px) {
+  .heatmap-table {
+    min-width: 400px;
+  }
+
+  .heat-cell {
+    min-width: 48px;
+    height: 36px;
+    font-size: 0.65rem;
+  }
+}

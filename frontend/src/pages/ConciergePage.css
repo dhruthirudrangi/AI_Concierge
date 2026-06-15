@@ -1,0 +1,147 @@
+.concierge-page {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  height: calc(100vh - 57px);
+  max-height: calc(100dvh - 57px);
+}
+
+.concierge-sidebar {
+  border-right: 1px solid var(--border);
+  background: var(--bg);
+  padding: 1.25rem;
+  overflow-y: auto;
+}
+
+.profile-summary h3 {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.profile-summary dl {
+  margin: 0 0 1rem;
+  font-size: 0.825rem;
+}
+
+.profile-summary dt {
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.profile-summary dd {
+  margin: 0.15rem 0 0;
+  font-weight: 500;
+}
+
+.edit-link {
+  font-size: 0.8rem;
+  color: var(--primary);
+}
+
+.sidebar-cards {
+  margin-top: 1.5rem;
+}
+
+.concierge-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--surface);
+}
+
+.concierge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  gap: 1rem;
+}
+
+.concierge-header h1 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.concierge-header p {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  margin: 0.2rem 0 0;
+}
+
+.refresh-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.refresh-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refresh-btn .spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.concierge-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.btn-primary-link {
+  display: inline-flex;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+  .concierge-page {
+    grid-template-columns: 1fr;
+    height: auto;
+    max-height: none;
+  }
+
+  .concierge-sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .concierge-main {
+    min-height: 70vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .concierge-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

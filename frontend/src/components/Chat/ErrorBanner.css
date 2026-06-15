@@ -1,0 +1,25 @@
+.error-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--error-bg);
+  border: 1px solid var(--error);
+  border-radius: 10px;
+  color: var(--error);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.error-banner span {
+  flex: 1;
+}
+
+.error-dismiss {
+  background: none;
+  border: none;
+  color: var(--error);
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+}
