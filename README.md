@@ -36,6 +36,17 @@ Our system takes the user's chat message and spending profile, searches through 
 
 ---
 
+## 🏛️ Design Decision: Why SQLite instead of MongoDB?
+
+Although Member 1 uses **MongoDB** for the overall project data storage, we chose **SQLite** for Member 2's localized feedback loop and benchmarking due to several engineering benefits:
+
+1. **Local Independence & Testing Isolation**: SQLite runs in-process with Python and stores database tables in a single local file. This allowed us to build, debug, and run automated unit tests and performance benchmarks in a completely self-contained workspace without needing a live connection to a shared MongoDB instance.
+2. **Zero Network Latency**: Because SQLite executes inside the app process, there are no TCP connection delays or network roundtrips. This allowed us to measure the *pure algorithm overhead* of our re-ranking engine during benchmarks, proving a total pipeline time under **3 milliseconds** (a network database roundtrip alone often takes 10ms–50ms).
+3. **Structured Tabular Logging**: The feedback loop logs simple structured interaction tuples (`user_id`, `card_id`, `action`, `categories`, `timestamp`). A lightweight relational database (SQL) is the perfect fit for storing and executing aggregated mathematical queries on this data (such as calculating category weights).
+4. **Seamless Integration**: When integrating with Member 1's backend, MongoDB will serve as the global state (storing card records and persistent user profiles). Member 1's API can fetch the profile from MongoDB and pass the resulting Pydantic schemas directly into our modular `ReRanker` and `BusinessRulesEngine` components without needing any code changes.
+
+---
+
 ## Project Structure
 
 * **`app/`** (Core Code):
