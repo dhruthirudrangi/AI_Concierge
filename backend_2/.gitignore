@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# FAISS Vector Index Files (can grow extremely large)
+*.bin
+app/data/faiss_index.bin
+
+# SQLite database files (local user logs and feedback history)
+*.sqlite
+*.db
+app/data/*.sqlite
+
+# Cached mock JSON databases (regenerated or loaded dynamically)
+app/data/*.json
+
+# Pytest / Testing caches
+.pytest_cache/
+.coverage
+htmlcov/
